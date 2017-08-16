@@ -40,5 +40,5 @@ MIT
 Author Information
 ------------------
 
-Quoc Vu
-https://github.com/quocvu
+Quoc Vu  
+https://linkedin.com/in/quocvu  
