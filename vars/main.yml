@@ -1,0 +1,12 @@
+---
+# vars file for nodejs-ansible
+
+nvm_version: v0.33.2
+node_versions:
+  - 4
+  - 6.11
+  - stable
+npm_global_packages:
+  - bower
+  - grunt-cli
+  - less

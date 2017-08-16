@@ -1,0 +1,72 @@
+---
+# tasks file for install NVM, NOM and NodeJS
+
+- name: check if nvm is already installed
+  stat:
+    path: /home/{{ ansible_ssh_user }}/.nvm
+  register: nvm
+  tags:
+    - nodejs
+
+- name: download nvm installer
+  get_url:
+    url: https://raw.githubusercontent.com/creationix/nvm/{{ nvm_version }}/install.sh
+    dest: /tmp/nvm_install.sh
+    force: no
+    mode: 0755
+  when: nvm.stat.exists == false
+  tags:
+    - nodejs
+
+- name: install nvm
+  become: no
+  shell: /tmp/nvm_install.sh
+  when: nvm.stat.exists == false
+  tags:
+    - nodejs
+
+- name: autoload nvm
+  blockinfile:
+    path: /home/{{ ansible_ssh_user }}/.bashrc
+    block: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+  tags:
+    - nodejs
+
+- name: install node and npm
+  become: no
+  shell: . /home/{{ ansible_ssh_user }}/.nvm/nvm.sh && nvm install {{ item }}
+  args:
+    executable: '/bin/bash'
+  with_items: "{{ node_versions }}"
+  tags:
+    - nodejs
+
+- name: pick the default node version
+  become: no
+  shell: . /home/{{ ansible_ssh_user }}/.nvm/nvm.sh && nvm alias default stable
+  args:
+    executable: '/bin/bash'
+  tags:
+    - nodejs
+
+- name: install useful npm modules
+  become: no
+  shell: . /home/{{ ansible_ssh_user }}/.nvm/nvm.sh && nvm use stable && npm install -g {{ item }}
+  args:
+    executable: '/bin/bash'
+  with_items: "{{ npm_global_packages }}"
+  tags:
+    - nodejs
+
+- name: setup dot files
+  copy:
+    src: "{{ item }}"
+    dest: /home/{{ ansible_ssh_user }}/{{ item }}
+    mode: 0644
+  with_items:
+    - .npmrc
+    - .nvmrc
+  tags:
+    - nodejs
