@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/travis/quocvu/nodejs-ansible.svg)](https://travis-ci.org/quocvu/nodejs-ansible)
+[![Ansible Role](https://img.shields.io/ansible/role/19878.svg)](https://galaxy.ansible.com/quocvu/nodejs-ansible)
+
 Role Name
 =========
 
