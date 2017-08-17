@@ -3,30 +3,52 @@ galaxy_info:
   description: Install NodeJS development tools
   company: N/A
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.0
   github_branch: master
   platforms:
-    - name: MacOSX
-      versions:
-       - all
-    - name: ArchLinux
+    - name: Alpine
       versions:
         - all
-    - name: Ubuntu
+    - name: ArchLinux
       versions:
         - all
     - name: Debian
       versions:
         - all
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: FreeBSD
+      versions:
+        - all
+    - name: GenericLinux
+      versions:
+        - all
+    - name: MacOSX
+      versions:
+       - all
+    - name: OpenBSD
+      versions:
+       - all
+    - name: opensuse
+      versions:
+       - all
+    - name: Ubuntu
+      versions:
+        - all
   galaxy_tags:
-    - nodejs
-    - node
-    - nvm
+    - archlinux
+    - bsd
+    - debian
     - development
     - linux
-    - osx
     - mac
-    - archlinux
+    - node
+    - nodejs
+    - nvm
+    - osx
     - ubuntu
-    - debian
 dependencies: []
