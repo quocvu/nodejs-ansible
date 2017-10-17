@@ -61,9 +61,10 @@
     - nodejs
 
 - name: setup dot files
-  copy:
-    src: "{{ item }}"
-    dest: /home/{{ ansible_ssh_user }}/{{ item }}
+  become: no
+  get_url:
+    url: https://raw.githubusercontent.com/quocvu/dotfiles/master/{{ item }}
+    dest: /home/{{ ansible_user }}/{{ item }}
     mode: 0644
   with_items:
     - .npmrc

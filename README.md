@@ -1,8 +1,8 @@
 [![Build Status](https://img.shields.io/travis/quocvu/nodejs-ansible.svg)](https://travis-ci.org/quocvu/nodejs-ansible)
 [![Ansible Role](https://img.shields.io/ansible/role/19878.svg)](https://galaxy.ansible.com/quocvu/nodejs-ansible)
 
-Role Name
-=========
+nodejs-ansible
+==============
 
 Setup NVM, NodeJS, and NPM for development purpose. NVM allow developers to
 run multiple version of NodeJS on the same computer.
@@ -27,7 +27,7 @@ none
 Example Playbook
 ----------------
 
-To install this NodeJS development environment, add the following in your playbook:
+To install NodeJS development environment, add the following in your playbook:
 
 ```
 - hosts: servers
@@ -44,4 +44,5 @@ Author Information
 ------------------
 
 Quoc Vu  
+https://github.com/quocvu
 https://linkedin.com/in/quocvu  
