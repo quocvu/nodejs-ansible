@@ -3,14 +3,16 @@
 
 # version of nvm to install. we recommend using the latest.
 # Check https://github.com/creationix/nvm for more details
-nvm_version: v0.33.2
+nvm_version: v0.33.11
 
 # list of node versions to install via NVM
 # we recommend installing at least one stable version
 node_versions:
   - 4
   - 6.11
-  - stable
+  - 8.10
+  - 9
+  - 10
 
 # list of the NPM packages to install globally
 npm_global_packages:
