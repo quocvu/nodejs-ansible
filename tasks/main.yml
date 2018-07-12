@@ -3,7 +3,7 @@
 
 - name: check if nvm is already installed
   stat:
-    path: /home/{{ ansible_ssh_user }}/.nvm
+    path: "{{ lookup('env','HOME') }}/.nvm"
   register: nvm
   tags:
     - nodejs
@@ -36,7 +36,7 @@
 
 - name: install node and npm
   become: no
-  shell: . /home/{{ ansible_ssh_user }}/.nvm/nvm.sh && nvm install {{ item }}
+  shell: . {{ lookup('env','HOME') }}/.nvm/nvm.sh && nvm install {{ item }}
   args:
     executable: '/bin/bash'
   with_items: "{{ node_versions }}"
@@ -45,7 +45,7 @@
 
 - name: pick the default node version
   become: no
-  shell: . /home/{{ ansible_ssh_user }}/.nvm/nvm.sh && nvm alias default stable
+  shell: . {{ lookup('env','HOME') }}/.nvm/nvm.sh && nvm alias default stable
   args:
     executable: '/bin/bash'
   tags:
@@ -53,7 +53,7 @@
 
 - name: install useful npm modules
   become: no
-  shell: . /home/{{ ansible_ssh_user }}/.nvm/nvm.sh && nvm use stable && npm install -g {{ item }}
+  shell: . {{ lookup('env','HOME') }}/.nvm/nvm.sh && nvm use stable && npm install -g {{ item }}
   args:
     executable: '/bin/bash'
   with_items: "{{ npm_global_packages }}"
@@ -64,7 +64,7 @@
   become: no
   get_url:
     url: https://raw.githubusercontent.com/quocvu/dotfiles/master/{{ item }}
-    dest: /home/{{ ansible_user }}/{{ item }}
+    dest: "{{ lookup('env','HOME') }}/{{ item }}"
     mode: 0644
   with_items:
     - .npmrc
