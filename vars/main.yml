@@ -18,4 +18,4 @@ node_versions:
 npm_global_packages:
   - bower
   - grunt-cli
-  - less
+  - sass
