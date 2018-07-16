@@ -8,8 +8,6 @@ nvm_version: v0.33.11
 # list of node versions to install via NVM
 # we recommend installing at least one stable version
 node_versions:
-  - 4
-  - 6.11
   - 8.10
   - 9
   - 10
@@ -18,4 +16,4 @@ node_versions:
 npm_global_packages:
   - bower
   - grunt-cli
-  - less
+  - sass
