@@ -3,7 +3,8 @@ language: python
 python: "2.7"
 os:
   - linux
-  - osx
+# TravisCI doesn't support python at this time
+#  - osx
 
 # Use the new container infrastructure
 sudo: false
