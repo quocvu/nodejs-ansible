@@ -44,5 +44,5 @@ Author Information
 ------------------
 
 Quoc Vu  
-https://github.com/quocvu
+https://github.com/quocvu  
 https://linkedin.com/in/quocvu  
