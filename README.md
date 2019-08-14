@@ -1,7 +1,7 @@
-[![Build Status](https://img.shields.io/travis/quocvu/nodejs-ansible.svg)](https://travis-ci.org/quocvu/nodejs-ansible)
-[![Ansible Role](https://img.shields.io/ansible/role/19878.svg)](https://galaxy.ansible.com/quocvu/nodejs-ansible)
+[![Build Status](https://img.shields.io/travis/quocvu/nodejs-ansible.svg)](https://travis-ci.org/quocvu/nodejs)
+[![Ansible Role](https://img.shields.io/ansible/role/19878.svg)](https://galaxy.ansible.com/quocvu/nodejs)
 
-nodejs-ansible
+nodejs
 ==============
 
 Setup NVM, NodeJS, and NPM for development purpose. NVM allow developers to
@@ -32,7 +32,7 @@ To install NodeJS development environment, add the following in your playbook:
 ```
 - hosts: servers
   roles:
-    - { role: quocvu.nodejs-ansible }
+    - { role: quocvu.nodejs }
 ```
 
 License
@@ -44,5 +44,5 @@ Author Information
 ------------------
 
 Quoc Vu  
-https://github.com/quocvu
+https://github.com/quocvu  
 https://linkedin.com/in/quocvu  
